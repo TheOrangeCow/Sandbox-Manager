@@ -1,11 +1,5 @@
 """
 Windows Sandbox Manager - edit .wsb configs and launch sandboxes.
-Python 3.8+ / tkinter only (standard library).
-
-Every setting the .wsb format supports is exposed:
-  vGPU, Networking, MappedFolders (HostFolder / SandboxFolder / ReadOnly),
-  LogonCommand, AudioInput, VideoInput, ProtectedClient,
-  PrinterRedirection, ClipboardRedirection, MemoryInMB
 """
 import json
 import os
@@ -17,7 +11,7 @@ import xml.etree.ElementTree as ET
 from tkinter import filedialog, messagebox, ttk
 
 APP_NAME = "Windows Sandbox Manager"
-TRI = ["Default", "Enable", "Disable"]  # "Default" = element omitted from file
+TRI = ["Default", "Enable", "Disable"]
 PREFS_PATH = os.path.join(os.environ.get("APPDATA", os.path.expanduser("~")),
                           "sandbox_manager_prefs.json")
 
@@ -30,7 +24,7 @@ DEFAULT_PREFS = {
     "warn_risky": True,
 }
 
-# (xml tag, label, help text)
+
 TRI_SETTINGS = [
     ("vGPU", "Virtual GPU (vGPU)",
      "Hardware-accelerated rendering. Disabling uses software rendering (WARP), "
